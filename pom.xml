@@ -1,27 +1,46 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0"
-         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-    <modelVersion>4.0.0</modelVersion>
+import tkinter as tk
+from tkinter import font
 
-    <groupId>org.example</groupId>
-    <artifactId>java-reachable-goof</artifactId>
-    <version>1.0-SNAPSHOT</version>
-    <properties>
-        <maven.compiler.source>1.8</maven.compiler.source>
-        <maven.compiler.target>1.8</maven.compiler.target>
-    </properties>
-    <dependencies>
-        <dependency>
-            <groupId>commons-collections</groupId>
-            <artifactId>commons-collections</artifactId>
-            <version>3.2.1</version>
-        </dependency>
-        <dependency>
-            <groupId>org.nd4j</groupId>
-            <artifactId>nd4j-common</artifactId>
-            <version>1.0.0-beta2</version>
-        </dependency>
-    </dependencies>
+def search_product():
+    product = search_entry.get()
+    print(f"Searching for: {product}")
 
-</project>
+# Initialize main window
+root = tk.Tk()
+root.title("Flipkart")
+root.geometry("600x400")
+root.configure(bg="#ffe11b")  # Flipkart color theme
+
+# Custom Fonts
+title_font = font.Font(family="Helvetica", size=18, weight="bold")
+button_font = font.Font(family="Helvetica", size=12, weight="bold")
+
+# Top Banner
+banner_frame = tk.Frame(root, bg="#2874F0", height=80)
+banner_frame.pack(fill="x")
+
+# Flipkart Title
+title_label = tk.Label(banner_frame, text="Flipkart", bg="#2874F0", fg="white", font=title_font)
+title_label.pack(side="left", padx=10, pady=10)
+
+# Search Bar
+search_entry = tk.Entry(banner_frame, width=50, font=("Helvetica", 12))
+search_entry.pack(side="left", padx=10)
+
+search_button = tk.Button(banner_frame, text="Search", bg="white", fg="black", command=search_product, font=button_font)
+search_button.pack(side="left", padx=5)
+
+# Body content
+body_frame = tk.Frame(root, bg="white", height=320)
+body_frame.pack(fill="both", expand=True)
+
+# Welcome text
+welcome_label = tk.Label(body_frame, text="Welcome to Flipkart", bg="white", fg="#2874F0", font=("Helvetica", 16, "bold"))
+welcome_label.pack(pady=20)
+
+# Featured Product
+product_label = tk.Label(body_frame, text="Featured Product: Smartphone", bg="white", fg="black", font=("Helvetica", 14))
+product_label.pack(pady=10)
+
+# Buy Button
+buy_button = tk.Button(body_frame, text="Buy Now", bg="#ff5722", fg="white"
